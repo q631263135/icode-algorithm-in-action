@@ -42,13 +42,39 @@ for each unsorted element X
 
     }
 
-    public static void main(String[] args) {
+
+    public static void insertionSortPlus(int[] a) {
+
+        for (int i = 1; i < a.length; i++) {
+            int temp = a[i];
+
+            for (int j = i - 1; j >= 0; j--) {
+                if (temp < a[j]) {
+                    a[j + 1] = a[j];
+                    a[j] = temp;
+                }
+            }
+        }
+
+    }
+
+
+    public static void main(String[] args) throws Exception {
         int[] a = {3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48};
         insertionSort(a);
         System.out.println(Arrays.toString(a));
+
+        int[] a1 = {3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48};
+        insertionSortPlus(a1);
+        System.out.println(Arrays.toString(a1));
+
+        int[] a2 = {3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48};
+        int[] sort = sort(a2);
+        System.out.println(Arrays.toString(sort));
     }
 
-    public int[] sort(int[] sourceArray) throws Exception {
+    // 菜鸟教程上的；另参见：https://visualgo.net/en/sorting
+    public static int[] sort(int[] sourceArray) throws Exception {
         // 对 arr 进行拷贝，不改变参数内容
         int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
 
